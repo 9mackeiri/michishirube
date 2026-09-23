@@ -1,0 +1,209 @@
+:root {
+  --navy: #0b2160;
+  --navy-2: #13378f;
+  --gold-line: #d8ad4a;
+  --ink: #3a3a3a;
+  --line: #06c755;
+  --line-dark: #049a42;
+  --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Noto Sans CJK JP", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: #061a52 url("assets/bg-blue.webp") center / cover fixed;
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.7;
+}
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+
+/* スマホ幅の1カラム。PCでは中央に置く */
+.page {
+  max-width: 480px;
+  margin: 0 auto;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, .45);
+}
+section { padding: 44px 20px; text-align: center; }
+
+/* ---- 金の立体文字 ---- */
+.gold {
+  font-weight: 900;
+  line-height: 1.2;
+  background: linear-gradient(180deg, #fff8d6 0%, #f8db7c 30%, #d19d2a 55%, #f6d67a 75%, #b07a1c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter:
+    drop-shadow(2px 0 0 var(--navy)) drop-shadow(-2px 0 0 var(--navy))
+    drop-shadow(0 2px 0 var(--navy)) drop-shadow(0 -2px 0 var(--navy))
+    drop-shadow(0 4px 4px rgba(0, 0, 0, .35));
+}
+
+/* ---- 1 つかみ ---- */
+.hook { position: relative; padding: 0; background: #111; }
+.hook-img { width: 100%; aspect-ratio: 1 / 1.15; object-fit: cover; object-position: 55% 30%; filter: brightness(.35); }
+.hook-text { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 28px; padding: 0 16px; }
+.hook h1 {
+  color: #fff;
+  font-size: clamp(22px, 6.4vw, 30px);
+  font-weight: 900;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .8);
+}
+
+/* ---- 帯・本文 ---- */
+.band {
+  margin: 0 -20px;
+  padding: 12px 16px;
+  background: rgba(20, 20, 30, .78);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+}
+.hook .band { margin: 0 -16px; }
+.band-blue { background: rgba(6, 22, 70, .8); margin-top: 28px; }
+.lead { font-size: 17px; font-weight: 600; margin: 18px 0; }
+.dark-head {
+  color: var(--navy);
+  font-size: clamp(24px, 7vw, 32px);
+  font-weight: 900;
+  line-height: 1.4;
+}
+.quote { margin: 18px 0; font-size: 16px; font-weight: 700; color: #7a5a3a; }
+.photo { border-radius: 14px; box-shadow: 0 6px 18px rgba(0, 0, 0, .12); }
+
+.soft { background: linear-gradient(180deg, #f7f3ee, #fff); }
+.soft-2 { background: linear-gradient(180deg, #eef4fb, #fff); }
+.pink { background: linear-gradient(180deg, #fdf0f0, #fff7f4); }
+
+/* ---- 青の光の背景 ---- */
+.blue {
+  background: #0a2a8a url("assets/bg-blue.webp") center / cover;
+  color: #fff;
+}
+.blue .intro { font-size: 17px; font-weight: 700; text-shadow: 0 1px 3px rgba(0, 0, 0, .9), 0 2px 10px rgba(0, 20, 80, .9); margin: 16px 0; }
+.title { font-size: clamp(52px, 16vw, 76px); letter-spacing: .02em; padding: 6px 0 12px; }
+.note {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  font-size: 11px;
+}
+.note-dark { background: rgba(60, 60, 60, .75); margin-top: 18px; }
+
+.badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 18px; }
+.badges li {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 4px;
+  background: #fff;
+  border: 2px solid var(--gold-line);
+  border-radius: 12px;
+  color: var(--navy);
+}
+.b-head, .b-foot { font-size: 12px; font-weight: 800; }
+.b-num { font-size: clamp(17px, 5.2vw, 24px); white-space: nowrap; }
+
+/* ---- 講師 ---- */
+.teacher { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.icon {
+  width: 42%; max-width: 170px; aspect-ratio: 1; object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--gold-line);
+  background: #cfe3f3;
+}
+.credit { font-size: clamp(28px, 8.6vw, 44px); text-align: left; white-space: nowrap; }
+.credit span { display: block; font-size: .6em; }
+.ribbon {
+  display: inline-block;
+  min-width: 70%;
+  margin-top: 20px;
+  padding: 6px 28px;
+  background: linear-gradient(180deg, #2f5fd0, var(--navy-2) 60%, var(--navy));
+  border: 2px solid var(--gold-line);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.records { display: grid; gap: 12px; margin-top: 8px; }
+.records li {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 12px;
+  background: #fff;
+  border-radius: 10px;
+}
+.r-icon {
+  flex: 0 0 56px; height: 56px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: 3px solid var(--gold-line);
+  background: radial-gradient(circle at 50% 35%, #3f74e0, var(--navy-2));
+}
+.r-icon svg { width: 34px; height: 34px; fill: #fff; }
+.records div { flex: 1; min-width: 0; }
+.r-head {
+  display: inline-block;
+  padding: 2px 12px;
+  background: var(--navy-2);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+.r-main { font-size: clamp(22px, 6.6vw, 30px); margin-top: 6px; }
+.r-sub { font-size: clamp(14px, 4.2vw, 18px); margin-top: 4px; }
+
+/* ---- 実績・仲間の写真 ---- */
+.card { margin: 10px 0 0; }
+.card img { border-radius: 14px; box-shadow: 0 6px 18px rgba(0, 0, 0, .15); }
+.card figcaption { margin-top: 10px; color: var(--navy); font-weight: 900; font-size: 18px; }
+.soft .card + .card { margin-top: 24px; }
+.soft .band { margin-top: 28px; }
+
+/* ---- 特典 ---- */
+.tokuten { padding-top: 10px; }
+.tokuten span { display: block; }
+.tokuten span:first-child { font-size: clamp(40px, 12.4vw, 58px); }
+.tokuten span:last-child { font-size: clamp(34px, 10.4vw, 50px); margin-top: 4px; }
+.genre {
+  margin-top: 16px;
+  padding: 8px 10px;
+  background: rgba(6, 22, 70, .85);
+  border: 1.5px solid var(--gold-line);
+  border-radius: 8px;
+  font-size: clamp(12px, 3.6vw, 15px);
+  font-weight: 800;
+}
+.free { font-size: clamp(28px, 8.4vw, 38px); margin-top: 36px; }
+.last { padding-bottom: 56px; }
+
+/* ---- LINEボタン ---- */
+.cta { margin-top: 28px; }
+.line-btn {
+  display: block;
+  padding: 18px 12px;
+  background: var(--line);
+  border-radius: 999px;
+  box-shadow: 0 5px 0 var(--line-dark), 0 10px 20px rgba(0, 0, 0, .25);
+  color: #fff;
+  font-size: clamp(16px, 4.6vw, 19px);
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform .1s, box-shadow .1s;
+}
+.line-btn:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--line-dark), 0 4px 10px rgba(0, 0, 0, .25); }
+.line-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+.foot { padding: 20px; background: var(--navy); color: #cfd8f5; text-align: center; font-size: 12px; }
+
+@media (prefers-reduced-motion: reduce) { .line-btn { transition: none; } }
+.photo-narrow { width: 72%; margin: 18px auto 0; }
